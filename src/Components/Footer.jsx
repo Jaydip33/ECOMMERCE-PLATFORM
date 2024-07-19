@@ -105,7 +105,7 @@ function Footer() {
                     © 2024 All rights reserved. Designed by Unvab.
                 </p>
             </div>
-        </footer >
+        </footer>
     );
 }
 
