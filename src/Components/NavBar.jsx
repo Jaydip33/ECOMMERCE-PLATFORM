@@ -1,8 +1,7 @@
+import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import imgSrc from "../assets/logo2.jpg";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { useSelector } from "react-redux";
 
 const NavLinks = [
     { link: "/", text: "Home" },

@@ -1,16 +1,16 @@
+import { Card } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import imgSrc1 from "../assets/blog1.jpg";
 import imgSrc2 from "../assets/blog2.jpg";
 import imgSrc3 from "../assets/blog3.jpg";
-import productDrop from "../assets/product-drop.jpg";
+import download1 from "../assets/download1.jpg";
+import download3 from "../assets/farm.jpg";
+import download4 from "../assets/flexible.jpg";
 import productDrop2 from "../assets/images.jpg";
 import productDrop3 from "../assets/images.png";
 import productDrop4 from "../assets/images1.jpg";
-import download1 from "../assets/download1.jpg";
 import download2 from "../assets/images1.png";
-import download3 from "../assets/farm.jpg";
-import download4 from "../assets/flexible.jpg";
-import { Card } from "react-bootstrap";
+import productDrop from "../assets/product-drop.jpg";
 
 const blogItems = [
     {

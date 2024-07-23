@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useEffect, useState } from "react";
-import { Button, Card, Spinner, Pagination } from "react-bootstrap";
 import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
+import { Button, Card, Pagination, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import AllCategory from "../Pages/AllCategory";
 import mainImages from "../assets/containet.jpg";

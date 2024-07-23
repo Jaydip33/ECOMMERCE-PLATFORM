@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import register1 from "../assets/signup-image.jpg";
-import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import register1 from "../assets/signup-image.jpg";
 
 function Register() {
     const navigate = useNavigate();

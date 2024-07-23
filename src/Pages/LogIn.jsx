@@ -1,9 +1,9 @@
-import { Button, Form } from "react-bootstrap";
-import login1 from "../assets/login.png";
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import login1 from "../assets/login.png";
 
 function LogIn() {
     const [email, setEmail] = useState("");

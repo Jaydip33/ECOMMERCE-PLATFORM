@@ -1,7 +1,7 @@
-import { FaTwitter, FaFacebookF, FaPinterest } from "react-icons/fa";
-import { TfiGoogle } from "react-icons/tfi";
-import { ImInstagram } from "react-icons/im";
 import { useState } from "react";
+import { FaFacebookF, FaPinterest, FaTwitter } from "react-icons/fa";
+import { ImInstagram } from "react-icons/im";
+import { TfiGoogle } from "react-icons/tfi";
 import { toast, ToastContainer } from "react-toastify";
 
 function Footer() {

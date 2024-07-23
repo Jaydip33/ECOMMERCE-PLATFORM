@@ -1,14 +1,14 @@
+import { useCallback } from "react";
 import { Button, Table } from "react-bootstrap";
+import { MdOutlineDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
     clearCart,
     decrementItem,
     incrementItem,
     removeItems,
 } from "../Redux/cartSlice";
-import { useNavigate } from "react-router-dom";
-import { MdOutlineDeleteForever } from "react-icons/md";
-import { useCallback } from "react";
 
 function CartItem() {
     const products = useSelector((state) => state.carts.products) || [];

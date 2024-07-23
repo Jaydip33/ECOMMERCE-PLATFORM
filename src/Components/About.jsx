@@ -1,5 +1,5 @@
-import about1 from "../assets/about_us_2.webp";
 import about2 from "../assets/about_us_1.jpg";
+import about1 from "../assets/about_us_2.webp";
 
 function About() {
     return (

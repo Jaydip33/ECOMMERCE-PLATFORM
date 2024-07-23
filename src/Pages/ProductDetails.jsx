@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
-import { Button, Spinner, Modal } from "react-bootstrap";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { Button, Modal, Spinner } from "react-bootstrap";
 import {
+    FaFacebookF,
+    FaInstagram,
+    FaPinterest,
     FaStar,
     FaTwitter,
-    FaFacebookF,
-    FaPinterest,
-    FaInstagram,
 } from "react-icons/fa";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { TfiGoogle } from "react-icons/tfi";
 import { useNavigate, useParams } from "react-router-dom";
 

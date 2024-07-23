@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
     const [inputValue, setInputValue] = useState({
@@ -46,64 +47,53 @@ function Contact() {
                     <h1>Contact Us</h1>
                 </div>
 
-                <div className="d-flex justify-content-between">
-                    <div className="col-12 col-md-4 col-xl-3 mt-0">
-                        <div>
-                            <div className="mb-3 d-flex align-items-center">
-                                <FiPhone size={"1.5em"} /> <h4 className="m-3"> Call to Us:</h4>
-                            </div>
-                            <div className="mb-3">
-                                <p>We are available from 10 am - 10 pm EST, 7 days a week.</p>
-                            </div>
-                            <div className="mb-3">
-                                <span>
-                                    <b>Customer Service:</b>
-                                </span>
-                                <p>(614) 638-9574</p>
-                            </div>
-                            <div className="mb-3">
-                                <span>
-                                    <b>Careers:</b>
-                                </span>
-                                <p>(614) 638-9574</p>
-                            </div>
+                <div className="row justify-content-between">
+                    <div className="col-12 col-md-4 col-lg-3 mt-0">
+                        <div className="mb-3 d-flex align-items-center">
+                            <FiPhone size={"1.5em"} /> <h4 className="m-3"> Call Us:</h4>
+                        </div>
+                        <div className="mb-3">
+                            <p>We are available from 10 am - 10 pm EST, 7 days a week.</p>
+                        </div>
+                        <div className="mb-3">
+                            <span>
+                                <b>Customer Service:</b>
+                            </span>
+                            <p>(614) 638-9574</p>
+                        </div>
+                        <div className="mb-3">
+                            <span>
+                                <b>Careers:</b>
+                            </span>
+                            <p>(614) 638-9574</p>
                         </div>
 
-                        <hr />
+                        <hr className="d-md-none" />
 
-                        <div>
-                            <div className="mb-3 d-flex align-items-center">
-                                <MdOutlineEmail size={"1.5em"} />{" "}
-                                <h4 className="m-3"> Write to Us:</h4>
-                            </div>
-                            <div className="mb-3">
-                                <p>
-                                    Fill out our form and we will contact you within 24 hours.
-                                </p>
-                            </div>
-                            <div className="mb-3">
-                                <span>
-                                    <b>Customer Service:</b>
-                                </span>
-                                <p>customer@example.com</p>
-                            </div>
-                            <div className="mb-3">
-                                <span>
-                                    <b>Careers:</b>
-                                </span>
-                                <p>careers@example.com</p>
-                            </div>
+                        <div className="mb-3 d-flex align-items-center">
+                            <MdOutlineEmail size={"1.5em"} /> <h4 className="m-3"> Email Us:</h4>
+                        </div>
+                        <div className="mb-3">
+                            <p>Fill out our form and we will contact you within 24 hours.</p>
+                        </div>
+                        <div className="mb-3">
+                            <span>
+                                <b>Customer Service:</b>
+                            </span>
+                            <p>customer@example.com</p>
+                        </div>
+                        <div className="mb-3">
+                            <span>
+                                <b>Careers:</b>
+                            </span>
+                            <p>careers@example.com</p>
                         </div>
 
-                        <hr />
+                        <hr className="d-md-none" />
 
                         <div>
-                            <div className="mb-3">
-                                <h4> Find Us:</h4>
-                            </div>
-                            <div className="mb-3">
-                                <p>Want to visit our Offline Stores?</p>
-                            </div>
+                            <h4> Find Us:</h4>
+                            <p>Want to visit our Offline Stores?</p>
                         </div>
                     </div>
 
