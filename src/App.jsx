@@ -22,7 +22,6 @@ import { useAuth } from "./Context/AuthProvider";
 
 function App() {
   const [authUser] = useAuth();
-  console.log("authUser", authUser);
 
   const dispatch = useDispatch();
 
@@ -33,32 +32,30 @@ function App() {
   return (
     <Router>
       <NavBar />
-      {authUser ? (
-        <Routes>
-          <Route
-            path="/"
-            element={<Home handleClickAdd={handleClickAdd} />}
-            exact
-          />
-          <Route path="/blog" element={<Blog />} exact />
-          <Route path="/about" element={<About />} exact />
-          <Route path="/contact" element={<Contact />} exact />
-          <Route path="/cart" element={<CartItem />} exact />
-          <Route path="/login" element={<LogIn />} exact />
-          <Route path="/signup" element={<Register />} exact />
-          <Route
-            path="/product/:id"
-            element={<ProductDetails handleClickAdd={handleClickAdd} />}
-            exact
-          />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            authUser ? (
+              <Home handleClickAdd={handleClickAdd} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+          exact
+        />
+        <Route path="/blog" element={<Blog />} exact />
+        <Route path="/about" element={<About />} exact />
+        <Route path="/contact" element={<Contact />} exact />
+        <Route path="/cart" element={<CartItem />} exact />
+        <Route path="/login" element={<LogIn />} exact />
+        <Route path="/signup" element={<Register />} exact />
+        <Route
+          path="/product/:id"
+          element={<ProductDetails handleClickAdd={handleClickAdd} />}
+          exact
+        />
+      </Routes>
       <Footer />
     </Router>
   );

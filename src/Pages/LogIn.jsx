@@ -22,8 +22,8 @@ function LogIn() {
                     (user) => user.email === email && user.password === password
                 );
 
+                localStorage.setItem("currentUser", JSON.stringify(existingUser));
                 if (existingUser) {
-                    localStorage.setItem("currentUser", JSON.stringify(existingUser));
                     toast.success("Login Successful!");
                     setTimeout(() => navigate("/", { replace: true }), 2000);
                 } else {
