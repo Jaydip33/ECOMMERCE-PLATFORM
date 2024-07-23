@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import register1 from "../assets/signup-image.jpg";
 
 function Register() {
@@ -20,7 +21,7 @@ function Register() {
         setInputValue({ ...inputValue, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (inputValue.password !== inputValue.confirmPassword) {
@@ -47,8 +48,9 @@ function Register() {
             confirmPassword: "",
         });
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        navigate("/login", { replace: true });
+        setTimeout(() => {
+            navigate("/login", { replace: true });
+        }, 2000);
     };
 
     return (
