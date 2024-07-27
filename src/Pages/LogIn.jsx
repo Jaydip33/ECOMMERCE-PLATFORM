@@ -13,6 +13,17 @@ function LogIn() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (!email || !password) {
+            toast.error("Please enter both email and password");
+            return;
+        }
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            toast.error("Invalid email address");
+            return;
+        }
+
         const existingUsersJSON = localStorage.getItem("users");
 
         if (existingUsersJSON) {
@@ -81,6 +92,7 @@ function LogIn() {
                                 placeholder="Enter your Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                aria-label="Email address"
                             />
                         </Form.Group>
 
@@ -92,14 +104,24 @@ function LogIn() {
                                 placeholder="Enter your Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                aria-label="Password"
                             />
                         </Form.Group>
 
                         <Form.Group className="mb-5">
-                            <Form.Check type="checkbox" label="Remember me" />
+                            <Form.Check
+                                type="checkbox"
+                                label="Remember me"
+                                aria-label="Remember me"
+                            />
                         </Form.Group>
 
-                        <Button variant="dark" type="submit" className="w-100">
+                        <Button
+                            variant="dark"
+                            type="submit"
+                            className="w-100"
+                            aria-label="Login"
+                        >
                             Login
                         </Button>
                     </Form>

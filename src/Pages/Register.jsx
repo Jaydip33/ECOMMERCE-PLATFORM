@@ -30,7 +30,7 @@ function Register() {
         }
 
         const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-        if (existingUsers.some(user => user.email === inputValue.email)) {
+        if (existingUsers.some((user) => user.email === inputValue.email)) {
             toast.error("User with this email already exists!");
             return;
         }

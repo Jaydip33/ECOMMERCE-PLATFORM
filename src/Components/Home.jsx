@@ -35,21 +35,21 @@ function Home({ handleClickAdd }) {
             try {
                 const response = await axios.get(url, { responseType: "json" });
                 const { products, total } = response.data;
-                const fetchedProducts = products.filter(
+                const filteredProducts = products.filter(
                     (product) =>
                         product.price >= priceRange[0] && product.price <= priceRange[1]
                 );
-                setProducts(fetchedProducts);
+                setProducts(filteredProducts);
                 setTotalPages(Math.ceil(total / productsPerPage));
-                setIsLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
+            } finally {
                 setIsLoading(false);
             }
         };
 
         fetchData();
-    }, [currentPage, selectedCategory, searchQuery, priceRange]);
+    }, [currentPage, selectedCategory, searchQuery, priceRange, productsPerPage]);
 
     useEffect(() => {
         if (selectedCategory) {
@@ -76,12 +76,14 @@ function Home({ handleClickAdd }) {
         setCurrentPage(1);
     }, []);
 
-    const handlePriceChange = (event) =>
+    const handlePriceChange = (event) => {
         setPriceRange(([min]) => [min, parseInt(event.target.value)]);
+        setCurrentPage(1);
+    };
 
     const renderPaginationItems = () => {
         const start = Math.max(1, currentPage - 2);
-        const end = Math.min(totalPages, start + 5);
+        const end = Math.min(totalPages, start + 4);
         const items = [];
 
         if (start > 1) {
@@ -143,7 +145,7 @@ function Home({ handleClickAdd }) {
                             </h5>
                         </center>
                     </div>
-                    {/* main containe */}
+                    {/* main container */}
                     <div
                         className="shadow-lg mb-5 bg-body-tertiary rounded w-75"
                         style={{ position: "absolute", left: "13%", top: "70%" }}

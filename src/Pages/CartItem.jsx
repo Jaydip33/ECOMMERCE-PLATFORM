@@ -9,6 +9,7 @@ import {
     incrementItem,
     removeItems,
 } from "../Redux/cartSlice";
+import Checkout from "./Checkout";
 
 function CartItem() {
     const products = useSelector((state) => state.carts.products) || [];
@@ -39,9 +40,12 @@ function CartItem() {
         dispatch(clearCart());
     }, [dispatch]);
 
-    const handleImageClick = (id) => {
-        navigate(`/product/${id}`);
-    };
+    const handleImageClick = useCallback(
+        (id) => {
+            navigate(`/product/${id}`);
+        },
+        [navigate]
+    );
 
     return (
         <div className="container">
@@ -73,8 +77,8 @@ function CartItem() {
                             </td>
                         </tr>
                     )}
-                    {products.map((item, index) => (
-                        <tr key={index}>
+                    {products.map((item) => (
+                        <tr key={item.id}>
                             <td style={{ width: "40%" }}>
                                 {item.images && item.images.length > 0 && (
                                     <img
@@ -163,8 +167,13 @@ function CartItem() {
                             </span>
                         </div>
                     </div>
+                    <div>
+                        <Checkout products={products} />
+                    </div>
                 </div>
+
             </div>
+
         </div>
     );
 }

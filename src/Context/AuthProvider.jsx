@@ -5,11 +5,10 @@ import { createContext, useContext, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const initialAuthUser = localStorage.getItem("currentUser");
-
-    const [authUser, setAuthUser] = useState(
-        initialAuthUser ? JSON.parse(initialAuthUser) : undefined
-    );
+    const [authUser, setAuthUser] = useState(() => {
+        const storedUser = localStorage.getItem("users");
+        return storedUser ? JSON.parse(storedUser) : undefined;
+    });
 
     return (
         <AuthContext.Provider value={[authUser, setAuthUser]}>
@@ -18,4 +17,6 @@ export const AuthProvider = ({ children }) => {
     );
 };
 
-export const useAuth = () => useContext(AuthContext);
+const useAuth = () => useContext(AuthContext);
+
+export { useAuth };

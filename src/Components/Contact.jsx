@@ -29,14 +29,13 @@ function Contact() {
             toast.error("Please fill in all fields");
         } else {
             toast.success("Thank you for your message!");
+            setInputValue({
+                name: "",
+                email: "",
+                title: "",
+                message: "",
+            });
         }
-
-        setInputValue({
-            name: "",
-            email: "",
-            title: "",
-            message: "",
-        });
     };
 
     return (
@@ -59,13 +58,13 @@ function Contact() {
                             <span>
                                 <b>Customer Service:</b>
                             </span>
-                            <p>(614) 638-9574</p>
+                            <p>(123) 123-1234</p>
                         </div>
                         <div className="mb-3">
                             <span>
                                 <b>Careers:</b>
                             </span>
-                            <p>(614) 638-9574</p>
+                            <p>(123) 123-1234</p>
                         </div>
 
                         <hr className="d-md-none" />
