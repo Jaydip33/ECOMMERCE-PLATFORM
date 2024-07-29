@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 function Checkout({ products }) {
     const [loading, setLoading] = useState(false);
@@ -34,10 +35,10 @@ function Checkout({ products }) {
             });
 
             if (result.error) {
-                console.log(result.error.message);
+                toast.error(result.error.message);
             }
         } catch (error) {
-            console.error("Error during the payment process:", error);
+            toast.error("Error during the payment process:", error);
         } finally {
             setLoading(false);
         }
@@ -45,11 +46,12 @@ function Checkout({ products }) {
 
     return (
         <div>
+            <ToastContainer position="top-right" autoClose={2000} />
             <Button
                 variant="dark"
                 className="w-100"
                 onClick={makePayment}
-                disabled={loading} // Disable button while loading
+                disabled={loading}
             >
                 {loading ? "Processing..." : "Checkout"}
             </Button>
