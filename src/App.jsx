@@ -52,7 +52,7 @@ function App() {
         <Route path="/cart" element={<CartItem />} exact />
         <Route path="/login" element={<LogIn />} exact />
         <Route path="/signup" element={<Register />} exact />
-        <Route path="/sucess" element={<Sucess />} />
+        <Route path="/success" element={<Sucess />} />
         <Route path="/cancel" element={<Cancel />} />
         <Route
           path="/product/:id"

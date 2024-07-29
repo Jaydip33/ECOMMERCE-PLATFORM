@@ -11,10 +11,12 @@ function Checkout({ products }) {
     const makePayment = async () => {
         setLoading(true);
         try {
-            const stripe = await loadStripe("pk_test_51Ph3UnRuFWixJrx01UMAHChNFudIem20I6YZmHSwqygUourVl0Q69GKwnOnhVa5ukBQcADo9zy06ZFQBSkN52LIg0093JjoBBU");
+            const stripe = await loadStripe(
+                "pk_test_51Ph3UnRuFWixJrx01UMAHChNFudIem20I6YZmHSwqygUourVl0Q69GKwnOnhVa5ukBQcADo9zy06ZFQBSkN52LIg0093JjoBBU"
+            );
 
             const body = {
-                products: products, // Ensure products are passed correctly
+                products: products,
             };
 
             const headers = {
@@ -22,14 +24,13 @@ function Checkout({ products }) {
             };
 
             // Make the payment request
-            const res = await axios.post("http://localhost:8080/payment", body, {
-                headers,
-            });
+            const res = await axios.post("http://localhost:8080/payment", body, { headers });
 
-            const sessionId = res.data.id;
+            // Access the session directly from the Axios response
+            const session = res.data;
 
             const result = await stripe.redirectToCheckout({
-                sessionId,
+                sessionId: session.id,
             });
 
             if (result.error) {

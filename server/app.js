@@ -13,14 +13,19 @@ app.use(cors());
 app.post("/payment", async (req, res) => {
     const { products } = req.body;
 
+    if (!products || !Array.isArray(products) || products.length === 0) {
+        return res.status(400).json({ error: "No products provided" });
+    }
+
     try {
         const lineItems = products.map((item) => ({
             price_data: {
-                currency: "USD",
+                currency: "usd",
                 product_data: {
                     name: item.title,
+                    images: [item.image],
                 },
-                unit_amount: item.price * 100,
+                unit_amount: Math.round(item.price * 100),
             },
             quantity: item.quantity,
         }));
@@ -29,7 +34,7 @@ app.post("/payment", async (req, res) => {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: "payment",
-            success_url: "http://localhost:5173/sucess",
+            success_url: "http://localhost:5173/success",
             cancel_url: "http://localhost:5173/cancel",
         });
 
